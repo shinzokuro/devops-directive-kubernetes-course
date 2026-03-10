@@ -1,0 +1,25 @@
+# this will cause an error ,try to debug it and fix it 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-team-a
+  namespace: team-a
+spec:
+  containers:
+    - name: nginx-team-a
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+        limits:
+          cpu: "500m" 
+          memory: "256Mi"
+
+      securityContext:
+        runAsNonRoot: true
+       
+

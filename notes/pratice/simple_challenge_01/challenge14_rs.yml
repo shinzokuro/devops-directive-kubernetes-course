@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+  labels:
+    app: nginx-test
+    app: nginx-challenge-14
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-challenge-14
+  template:
+    metadata:
+      labels:
+        app: nginx-challenge-14
+    spec:
+      containers:
+        - name: nginx-test
+          image: nginx:latest

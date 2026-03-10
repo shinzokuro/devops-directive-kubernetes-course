@@ -1,0 +1,22 @@
+## this will also produce an error 
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-test
+  labels:
+    app.kubernetes.io/name: nginx-test
+spec:
+  containers:
+  - name: nginx-test
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
