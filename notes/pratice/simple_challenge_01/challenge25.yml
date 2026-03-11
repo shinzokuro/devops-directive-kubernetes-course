@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: staging
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+  namespace: staging
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: api-server
+  template:
+    metadata:
+      labels:
+        app: api-server
+    spec:
+      containers:
+      - name: nginx-challenge-25
+        image: nginx:1.26.3
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+  

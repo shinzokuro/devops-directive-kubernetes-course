@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-challenge-19
+  annotations:
+    kubernetes.io/change-cause: "changing image to nginx:1.26.3"
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: nginx-challenge-19
+  template:
+    metadata:
+      labels:
+        app: nginx-challenge-19
+    spec:
+      containers:
+        - name: nginx-test
+          image: nginx:1.26.3
+
+## using change cause annotation, we can track the changes in the deployment history and also we can rollback to the previous version if needed.

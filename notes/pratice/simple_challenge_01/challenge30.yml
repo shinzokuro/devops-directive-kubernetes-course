@@ -1,19 +1,19 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: nginx-replicaset
+  name: nginx-deployment
   labels:
-    app: nginx-challenge-14
+    app: nginx-challenge-30
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx-challenge-14
+      app: nginx-challenge-30
   template:
     metadata:
       labels:
-        app: nginx-challenge-14
+        app: nginx-challenge-30
     spec:
       containers:
         - name: nginx-test
-          image: nginx:latest
+          image: nginx:1.26.3
