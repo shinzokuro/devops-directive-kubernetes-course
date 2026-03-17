@@ -1,3 +1,6 @@
+## A personal walkthrough of the DevOps Directive Kubernetes course. Includes my notes, experiments, and modifications while learning Kubernetes concepts.
+
+
 # DevOps Directive Kubernetes Course
 
 This is the companion repo to: [Complete Kubernetes Course -- From BEGINNER to PRO

@@ -1,0 +1,20 @@
+## kubectl label node kind-worker env=prod
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: prod-daemon
+spec:
+  selector:
+    matchLabels:
+      app: prod-daemon
+  template:
+    metadata:
+      labels:
+        app: prod-daemon
+    spec:
+      nodeSelector:
+        env: prod
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh", "-c", "while true; do sleep 10; done"]

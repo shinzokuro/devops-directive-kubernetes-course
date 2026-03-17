@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: logger-daemon
+  namespace: default
+  labels:
+    app: logger-daemon-app
+spec:
+  selector:
+    matchLabels:
+      app: logger-daemon-app
+  template:
+    metadata:
+      labels:
+        app: logger-daemon-app
+    spec:
+      
+      containers:
+      - name: logger-daemon-app
+        image: busybox
+        command: ["echo", "logging"]
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        
